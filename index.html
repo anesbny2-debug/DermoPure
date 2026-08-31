@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DermoPure | ديرمو بيور - متجر المواد الشبه صيدلانية والعناية بالبشرة</title>
+<meta name="description" content="DermoPure (ديرمو بيور) — متجر جزائري للمواد الشبه صيدلانية والعناية بالبشرة والشعر: عناية بالوجه، واقيات شمس، مكملات غذائية ومصل بشرة أصلي 100%." />
+<meta name="theme-color" content="#0D9488" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="DermoPure | ديرمو بيور" />
+<meta property="og:description" content="متجر المواد الشبه صيدلانية والعناية بالبشرة — منتجات أصلية، توصيل لكل الولايات." />
+<meta property="og:type" content="website" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+<!-- Tailwind (utility layer only — components are custom, see style.css) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['Tajawal', 'sans-serif'] },
+        colors: {
+          teal: { DEFAULT: '#0D9488', dark: '#0A6F66', tint: '#E3F3F1' },
+          ink: { DEFAULT: '#0F172A', soft: '#51606F' },
+          gold: { DEFAULT: '#A16207', tint: '#FAF1E0' },
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-white text-ink antialiased">
+
+<!-- ============================= HEADER ============================= -->
+<header class="site-header">
+  <div class="container-x">
+    <div class="flex items-center gap-3 py-3 md:gap-6">
+      <!-- Logo -->
+      <a href="#top" class="flex items-center gap-2.5 shrink-0">
+        <span class="brand-mark">DP</span>
+        <span class="hidden sm:flex flex-col leading-tight">
+          <span class="font-black text-base">DermoPure</span>
+          <span class="text-[11px] text-ink-soft font-medium">ديرمو بيور</span>
+        </span>
+      </a>
+
+      <!-- Search -->
+      <div class="search-field flex-1 max-w-xl hidden sm:block">
+        <input id="searchInput" type="search" placeholder="ابحث عن منتج، ماركة أو فئة..." aria-label="بحث" autocomplete="off" />
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-2 mr-auto md:mr-0">
+        <button id="mobileSearchBtn" class="icon-btn sm:hidden" aria-label="بحث">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button id="cartBtn" class="icon-btn" aria-label="سلة المشتريات">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-13z"/><path d="M6 6 5 2H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/></svg>
+          <span id="cartCount" class="cart-badge" hidden>0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile search (toggle) -->
+    <div id="mobileSearchWrap" class="search-field pb-3 sm:hidden hidden">
+      <input id="searchInputMobile" type="search" placeholder="ابحث عن منتج، ماركة أو فئة..." aria-label="بحث" autocomplete="off" />
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+    </div>
+
+    <!-- Category nav -->
+    <nav class="flex items-center gap-1.5 overflow-x-auto pb-3 -mx-1 px-1" aria-label="تصفح الفئات">
+      <button class="nav-pill is-active" data-cat="all">كل المنتجات</button>
+      <!-- injected category pills -->
+      <span id="navCategoryPills" class="contents"></span>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============================= HERO ============================= -->
+  <section class="hero">
+    <div class="container-x py-12 md:py-20 relative">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="order-2 md:order-1">
+          <span class="hero-badge"><span class="dot"></span> توصيل لـ 58 ولاية</span>
+          <h1 class="mt-5 text-4xl md:text-5xl font-black leading-[1.15] text-ink">
+            بشرتك تستحق عناية<br class="hidden md:block" /> <span class="text-teal">صيدلانية موثوقة</span>
+          </h1>
+          <p class="mt-5 text-ink-soft text-base md:text-lg max-w-md leading-relaxed">
+            منتجات أصلية 100% من أفضل الماركات الأوروبية — للوجه، الشعر، الحماية من الشمس، والمكملات الغذائية. اطلب الآن وادفع عند الاستلام.
+          </p>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#products" class="btn-primary">تسوّق الآن</a>
+            <a href="#categories" class="btn-secondary">استعرض الفئات</a>
+          </div>
+          <div class="mt-9 flex items-center gap-6">
+            <div>
+              <p class="text-2xl font-black">+2500</p>
+              <p class="text-xs text-ink-soft font-medium mt-0.5">عميل راضٍ</p>
+            </div>
+            <div class="w-px h-9 bg-[var(--c-line)]"></div>
+            <div>
+              <p class="text-2xl font-black">100%</p>
+              <p class="text-xs text-ink-soft font-medium mt-0.5">منتجات أصلية</p>
+            </div>
+            <div class="w-px h-9 bg-[var(--c-line)]"></div>
+            <div>
+              <p class="text-2xl font-black">24س</p>
+              <p class="text-xs text-ink-soft font-medium mt-0.5">تأكيد الطلب</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 md:order-2">
+          <div class="hero-visual">
+            <div class="plate"></div>
+            <div class="hero-stat-card">
+              <p class="text-[11px] font-bold text-ink-soft">الأكثر مبيعًا هذا الأسبوع</p>
+              <p class="text-sm font-black mt-1">مصل فيتامين C المضيء</p>
+              <p class="text-teal-dark font-black mt-1.5">3900 دج</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= CATEGORIES ============================= -->
+  <section id="categories" class="py-14 md:py-20 border-b border-[var(--c-line)]">
+    <div class="container-x">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <span class="section-label">تسوّق حسب الفئة</span>
+          <h2 class="text-2xl md:text-3xl font-black mt-2">اختر ما تحتاجه بشرتك</h2>
+        </div>
+      </div>
+      <div id="categoryGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+        <!-- injected -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= PRODUCTS ============================= -->
+  <section id="products" class="py-14 md:py-20">
+    <div class="container-x">
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-7">
+        <div>
+          <span class="section-label">المنتجات</span>
+          <h2 class="text-2xl md:text-3xl font-black mt-2">تشكيلة العناية بالبشرة</h2>
+        </div>
+        <p id="resultsCount" class="text-sm text-ink-soft font-medium"></p>
+      </div>
+
+      <div class="flex items-center gap-2 overflow-x-auto pb-6 -mx-1 px-1" id="filterChips">
+        <!-- injected sort/filter chips -->
+      </div>
+
+      <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5 md:gap-5">
+        <!-- injected product cards / skeletons -->
+      </div>
+
+      <div id="emptyState" class="hidden text-center py-20">
+        <p class="text-lg font-black">لا توجد نتائج مطابقة</p>
+        <p class="text-ink-soft text-sm mt-2">جرّب كلمة بحث أخرى أو اختر فئة مختلفة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= TRUST STRIP ============================= -->
+  <section class="py-12 bg-[var(--c-bg-soft)] border-y border-[var(--c-line)]">
+    <div class="container-x grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <p class="text-2xl mb-2">✓</p>
+        <p class="text-sm font-bold">منتجات أصلية</p>
+        <p class="text-xs text-ink-soft mt-1">مضمونة 100%</p>
+      </div>
+      <div>
+        <p class="text-2xl mb-2">↺</p>
+        <p class="text-sm font-bold">الدفع عند الاستلام</p>
+        <p class="text-xs text-ink-soft mt-1">بكل أمان</p>
+      </div>
+      <div>
+        <p class="text-2xl mb-2">✆</p>
+        <p class="text-sm font-bold">دعم عبر واتساب</p>
+        <p class="text-xs text-ink-soft mt-1">رد سريع</p>
+      </div>
+      <div>
+        <p class="text-2xl mb-2">⚑</p>
+        <p class="text-sm font-bold">توصيل لكل الولايات</p>
+        <p class="text-xs text-ink-soft mt-1">2-5 أيام عمل</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="bg-ink text-white pt-14 pb-8 mt-0">
+  <div class="container-x grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-2.5 mb-4">
+        <span class="brand-mark">DP</span>
+        <span class="font-black">DermoPure</span>
+      </div>
+      <p class="text-sm text-[#b9c3ce] leading-relaxed">ديرمو بيور — متجر المواد الشبه صيدلانية والعناية بالبشرة. منتجات أصلية موثوقة لكل أفراد العائلة.</p>
+    </div>
+    <div>
+      <p class="footer-heading">روابط سريعة</p>
+      <a href="#products" class="footer-link">المنتجات</a>
+      <a href="#categories" class="footer-link">الفئات</a>
+      <a href="#top" class="footer-link">الرئيسية</a>
+    </div>
+    <div>
+      <p class="footer-heading">تواصل معنا</p>
+      <a id="footerWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="footer-link">واتساب</a>
+      <a href="#" class="footer-link">تيليغرام</a>
+      <span class="footer-link">الجزائر</span>
+    </div>
+    <div>
+      <p class="footer-heading">معلومات</p>
+      <span class="footer-link">توصيل لـ 58 ولاية</span>
+      <span class="footer-link">الدفع عند الاستلام</span>
+      <span class="footer-link">إرجاع خلال 7 أيام</span>
+    </div>
+  </div>
+  <div class="container-x mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+    <p class="text-xs text-[#8b96a3]">© 2026 DermoPure — ديرمو بيور. جميع الحقوق محفوظة.</p>
+    <p class="text-xs text-[#8b96a3]">صُنع بعناية للبشرة الجزائرية 🌿</p>
+  </div>
+</footer>
+
+<!-- ============================= QUICK VIEW MODAL ============================= -->
+<div id="quickViewScrim" class="overlay-scrim"></div>
+<div id="quickViewModal" class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="qvTitle">
+  <div id="quickViewContent"><!-- injected --></div>
+</div>
+
+<!-- ============================= CART DRAWER ============================= -->
+<div id="cartScrim" class="overlay-scrim"></div>
+<aside id="cartDrawer" class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <div class="flex items-center justify-between px-5 py-4 border-b border-[var(--c-line)]">
+    <h2 id="cartTitle" class="font-black text-lg">سلة المشتريات</h2>
+    <button id="cartCloseBtn" class="icon-btn" aria-label="إغلاق">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="cartBody" class="flex-1 overflow-y-auto px-5">
+    <!-- injected cart lines or empty state -->
+  </div>
+
+  <div id="cartFooter" class="border-t border-[var(--c-line)] px-5 py-4 hidden">
+    <div class="flex items-center justify-between text-sm text-ink-soft mb-1.5">
+      <span>المجموع الفرعي</span>
+      <span id="cartSubtotal" class="font-bold text-ink">0 دج</span>
+    </div>
+    <div class="flex items-center justify-between text-lg font-black mb-4">
+      <span>الإجمالي</span>
+      <span id="cartTotal">0 دج</span>
+    </div>
+    <button id="checkoutBtn" class="btn-primary w-full mb-2.5">إتمام الطلب</button>
+    <button id="whatsappOrderBtn" class="w-full flex items-center justify-center gap-2 border border-[var(--c-line)] rounded-md py-3 font-bold text-sm hover:border-teal hover:bg-teal-tint transition-colors">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.27-1.38a9.9 9.9 0 0 0 4.77 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.13.82.84-3.05-.2-.31a8.22 8.22 0 0 1-1.26-4.37c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.83c0 4.55-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.01 2.58.12.17 1.76 2.68 4.25 3.76.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg>
+      الطلب عبر واتساب
+    </button>
+  </div>
+</aside>
+
+<!-- ============================= CHECKOUT MODAL ============================= -->
+<div id="checkoutScrim" class="overlay-scrim"></div>
+<div id="checkoutModal" class="modal-panel modal-sm" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="flex items-center justify-between px-6 py-4 border-b border-[var(--c-line)] sticky top-0 bg-white">
+    <h2 id="checkoutTitle" class="font-black text-lg">أطلب الآن</h2>
+    <button id="checkoutCloseBtn" class="icon-btn" aria-label="إغلاق">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <form id="checkoutForm" class="px-6 py-5" novalidate>
+    <div class="mb-4">
+      <label class="form-label" for="fullName">الاسم الكامل</label>
+      <input class="form-input" type="text" id="fullName" name="fullName" placeholder="مثال: أحمد بن علي" required />
+      <p class="form-error hidden" data-error-for="fullName">الرجاء إدخال الاسم الكامل</p>
+    </div>
+    <div class="mb-4">
+      <label class="form-label" for="phone">رقم الهاتف</label>
+      <input class="form-input" type="tel" id="phone" name="phone" placeholder="0555 12 34 56" required inputmode="numeric" />
+      <p class="form-error hidden" data-error-for="phone">رقم غير صالح (05/06/07 + 8 أرقام)</p>
+    </div>
+    <div class="grid grid-cols-2 gap-3 mb-4">
+      <div>
+        <label class="form-label" for="wilaya">الولاية</label>
+        <select class="form-input" id="wilaya" name="wilaya" required>
+          <option value="" disabled selected>اختر الولاية</option>
+        </select>
+        <p class="form-error hidden" data-error-for="wilaya">الرجاء اختيار الولاية</p>
+      </div>
+      <div>
+        <label class="form-label" for="commune">البلدية</label>
+        <input class="form-input" type="text" id="commune" name="commune" placeholder="اسم البلدية" required />
+        <p class="form-error hidden" data-error-for="commune">الرجاء إدخال البلدية</p>
+      </div>
+    </div>
+    <div class="mb-5">
+      <label class="form-label" for="address">العنوان الكامل (اختياري)</label>
+      <textarea class="form-input" id="address" name="address" rows="2" placeholder="الحي، الشارع، رقم المنزل..."></textarea>
+    </div>
+
+    <div class="bg-[var(--c-bg-soft)] rounded-md p-4 mb-5">
+      <p class="text-sm font-bold mb-2.5">ملخص الطلب</p>
+      <div id="checkoutSummary" class="space-y-1.5 text-sm"></div>
+      <div class="flex items-center justify-between font-black text-base mt-2.5 pt-2.5 border-t border-[var(--c-line)]">
+        <span>الإجمالي</span>
+        <span id="checkoutTotal">0 دج</span>
+      </div>
+    </div>
+
+    <button type="submit" id="checkoutSubmitBtn" class="btn-primary w-full">
+      <span id="checkoutSubmitLabel">تأكيد الطلب</span>
+    </button>
+    <p class="text-[11px] text-ink-soft text-center mt-3">الدفع عند الاستلام — لا حاجة لبطاقة بنكية</p>
+  </form>
+</div>
+
+<!-- ============================= SUCCESS MODAL ============================= -->
+<div id="successScrim" class="overlay-scrim"></div>
+<div id="successModal" class="modal-panel modal-sm" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="p-8 text-center">
+    <div class="w-16 h-16 rounded-full bg-teal-tint flex items-center justify-center mx-auto mb-5">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0D9488" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2 id="successTitle" class="text-xl font-black mb-2">تم استلام طلبك بنجاح!</h2>
+    <p class="text-ink-soft text-sm mb-5">سيتصل بك فريقنا قريبًا لتأكيد الطلب.</p>
+    <div class="bg-[var(--c-bg-soft)] rounded-md p-4 mb-6 text-start">
+      <div class="flex items-center justify-between text-sm mb-1.5">
+        <span class="text-ink-soft">رقم الطلب</span>
+        <span id="successOrderId" class="font-black">#DP-000000</span>
+      </div>
+      <div class="flex items-center justify-between text-sm">
+        <span class="text-ink-soft">الإجمالي</span>
+        <span id="successTotal" class="font-black">0 دج</span>
+      </div>
+    </div>
+    <button id="successCloseBtn" class="btn-primary w-full">متابعة التسوق</button>
+  </div>
+</div>
+
+<!-- ============================= TOAST ============================= -->
+<div id="toast" class="toast">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+  <span id="toastMsg">تمت الإضافة إلى السلة</span>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
